@@ -1,0 +1,44 @@
+# BookDetail Detail
+bookDetailDataSourceConfig:
+  baseUrl: http://localhost:8000/api/v1/book/
+  connectTimeout: 5000
+  readTimeout: 5000
+  maxTotal: 1024
+
+# Author
+authorDataSourceConfig:
+  baseUrl: http://localhost:8000/api/v1/author/
+  connectTimeout: 5000
+  readTimeout: 5000
+  maxTotal: 1024
+
+# Review
+reviewDataSourceConfig:
+  baseUrl: http://localhost:8000/api/v1/review/
+  connectTimeout: 5000
+  readTimeout: 5000
+  maxTotal: 1024
+
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 3000
+  adminConnectors:
+    - type: http
+      port: 3001
+
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+  # Logger-specific levels.
+  loggers:
+
+    com.github.engfragui.graphql.service: ALL
+
+  appenders:
+    - type: console
