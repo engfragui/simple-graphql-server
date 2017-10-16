@@ -13,7 +13,7 @@
     <modules>
         <module>api</module>
         <module>service</module>
-        <module>mock-api</module>
+        <module>mock-service</module>
     </modules>
 
     <build>

@@ -26,7 +26,7 @@ public class App extends Application<AppConfig> {
 
   @Override
   public String getName() {
-    return "mock-api-app";
+    return "mock-service-app";
   }
 
   @Override
@@ -61,6 +61,6 @@ public class App extends Application<AppConfig> {
     env.jersey().register(new ReviewByIsbn());
 
     // Register Health Check
-    env.healthChecks().register("mock-api-health-check", new AppHealthCheck());
+    env.healthChecks().register("mock-service-health-check", new AppHealthCheck());
   }
 }

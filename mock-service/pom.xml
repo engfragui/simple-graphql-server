@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mock-api</artifactId>
+    <artifactId>mock-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>

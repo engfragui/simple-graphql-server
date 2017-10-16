@@ -14,9 +14,9 @@ Running the application
     ```
     mvn clean install
     ```
-* Run the Mock API:
+* Run the Mock Service:
     ```
-    sh run_mock_api.sh
+    sh run_mock_service.sh
     ```
 * Run the GraphQL Server:
     ```
