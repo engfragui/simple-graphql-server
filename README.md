@@ -30,6 +30,11 @@ Testing the application
     ```
     http://localhost:8000/swagger
     ```
+    ```
+    http://localhost:8000/api/v1/book/0439708184
+    http://localhost:8000/api/v1/author/2222
+    http://localhost:8000/api/v1/review/0439708184
+    ```
 * Testing the GraphQL Server:
     ```
     http://localhost:3000/graphiql
