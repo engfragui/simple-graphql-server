@@ -38,7 +38,11 @@ public class AuthorFetcher implements DataFetcher {
         authorId = ((BookDetail) source).getAuthorId();
       }
 
-      return retrieveAuthor(authorId);
+      if (authorId != null) {
+        return retrieveAuthor(authorId);
+      } else { // we were not able to retrieve an authorId for the book
+        return null;
+      }
     }
 
     switch (fieldName) {

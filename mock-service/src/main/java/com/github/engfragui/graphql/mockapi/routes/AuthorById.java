@@ -33,16 +33,26 @@ public class AuthorById {
 
     Response<Author> response = new Response<>();
     Author author = new Author();
-    author.setId(id);
 
+    // TODO move the data into some external data source/database/file
     switch (id) {
+      case "1111":
+        author.setId(id);
+        author.setName("Markus Zusak");
+        break;
       case "2222":
+        author.setId(id);
         author.setName("J.K. Rowling");
         break;
-        // TODO add more authors here
+      case "3333":
+        author.setId(id);
+        author.setName("Gillian Flynn");
+        break;
     }
 
     response.setData(author);
+
+    // TODO possibly return not found if the author was not found
     return response;
   }
 }

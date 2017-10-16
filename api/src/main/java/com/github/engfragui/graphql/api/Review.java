@@ -3,7 +3,7 @@ package com.github.engfragui.graphql.api;
 public class Review {
 
   private String id;
-  private String title;
+  private StarRatingEnum starRating;
   private String content;
 
   public String getId() {
@@ -14,12 +14,12 @@ public class Review {
     this.id = id;
   }
 
-  public String getTitle() {
-    return title;
+  public StarRatingEnum getStarRating() {
+    return starRating;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setStarRating(StarRatingEnum starRating) {
+    this.starRating = starRating;
   }
 
   public String getContent() {

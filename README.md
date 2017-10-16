@@ -50,9 +50,16 @@ Testing the application
         }
         review {
           id
-          title
+          stars
           content
         }
       }
     }
     ```
+    List of isbn that can be retrieved:
+    - 0439708184
+    - 0375831002
+    - 0545010225
+    - 0739346806
+    - 0307588378
+    - 0307341569

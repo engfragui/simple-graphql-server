@@ -38,7 +38,11 @@ public class ReviewFetcher implements DataFetcher {
         isbn = ((BookDetail) source).getIsbn();
       }
 
-      return retrieveReview(isbn);
+      if (isbn != null) {
+        return retrieveReview(isbn);
+      } else { // we were not able to retrieve an isbn for the book
+        return null;
+      }
     }
 
     // TODO possibly investigate how to return multiple reviews
@@ -47,8 +51,8 @@ public class ReviewFetcher implements DataFetcher {
       case "id":
         return ((Review) source).getId();
 
-      case "title":
-        return ((Review) source).getTitle();
+      case "stars":
+        return ((Review) source).getStarRating();
 
       case "content":
         return ((Review) source).getContent();

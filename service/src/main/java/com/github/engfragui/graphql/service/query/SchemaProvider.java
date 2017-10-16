@@ -92,7 +92,7 @@ public class SchemaProvider implements GraphQLQueryProvider {
         wiring.type(AUTHOR, new AuthorDataFetcherBind("name"));
 
         wiring.type(REVIEW, new ReviewDataFetcherBind("id"));
-        wiring.type(REVIEW, new ReviewDataFetcherBind("title"));
+        wiring.type(REVIEW, new ReviewDataFetcherBind("stars"));
         wiring.type(REVIEW, new ReviewDataFetcherBind("content"));
 
         return wiring.build();

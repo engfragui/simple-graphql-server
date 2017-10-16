@@ -33,18 +33,50 @@ public class BookDetailByIsbn {
 
     Response<BookDetail> response = new Response<>();
     BookDetail bookDetail = new BookDetail();
-    bookDetail.setIsbn(isbn);
 
+    // TODO move the data into some external data source/database/file
     switch (isbn) {
       case "0439708184":
-        bookDetail.setId("1111");
+        bookDetail.setId("11111");
+        bookDetail.setIsbn(isbn);
         bookDetail.setTitle("Harry Potter and the Sorcerer's Stone");
         bookDetail.setAuthorId("2222");
         break;
-        // TODO add more books here
+      case "0375831002":
+        bookDetail.setId("22222");
+        bookDetail.setIsbn(isbn);
+        bookDetail.setTitle("The Book Thief");
+        bookDetail.setAuthorId("1111");
+        break;
+      case "0545010225":
+        bookDetail.setId("33333");
+        bookDetail.setIsbn(isbn);
+        bookDetail.setTitle("Harry Potter and the Deathly Hallows");
+        bookDetail.setAuthorId("2222");
+        break;
+      case "0739346806":
+        bookDetail.setId("44444");
+        bookDetail.setIsbn(isbn);
+        bookDetail.setTitle("Sharp Objects");
+        bookDetail.setAuthorId("3333");
+        break;
+      case "0307588378":
+        bookDetail.setId("55555");
+        bookDetail.setIsbn(isbn);
+        bookDetail.setTitle("Gone Girl");
+        bookDetail.setAuthorId("3333");
+        break;
+      case "0307341569":
+        bookDetail.setId("66666");
+        bookDetail.setIsbn(isbn);
+        bookDetail.setTitle("Dark Places");
+        bookDetail.setAuthorId("3333");
+        break;
     }
 
     response.setData(bookDetail);
+
+    // TODO possibly return not found if the book was not found
     return response;
   }
 }
