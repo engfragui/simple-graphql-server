@@ -8,7 +8,7 @@ server:
 
 
 swagger:
-  resourcePackage: com.github.engfragui.graphql.mockapis.routes
+  resourcePackage: com.github.engfragui.graphql.mockapi.routes
   schemes:
     - http
 
@@ -23,7 +23,7 @@ logging:
   # Logger-specific levels.
   loggers:
 
-    com.github.engfragui.graphql.mockapis: ALL
+    com.github.engfragui.graphql.mockapi: ALL
 
   appenders:
     - type: console

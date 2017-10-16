@@ -16,7 +16,7 @@ Running the application
     ```
 * Run the Mock API:
     ```
-    sh run_mock_apis.sh
+    sh run_mock_api.sh
     ```
 * Run the GraphQL Server:
     ```

@@ -1,4 +1,4 @@
-package com.github.engfragui.graphql.mockapis.routes;
+package com.github.engfragui.graphql.mockapi.routes;
 
 import com.codahale.metrics.annotation.Timed;
 import com.github.engfragui.graphql.api.Author;

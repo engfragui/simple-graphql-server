@@ -1,4 +1,4 @@
-package com.github.engfragui.graphql.mockapis;
+package com.github.engfragui.graphql.mockapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

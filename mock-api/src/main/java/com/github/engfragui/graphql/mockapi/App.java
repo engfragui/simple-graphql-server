@@ -1,9 +1,9 @@
-package com.github.engfragui.graphql.mockapis;
+package com.github.engfragui.graphql.mockapi;
 
-import com.github.engfragui.graphql.mockapis.health.AppHealthCheck;
-import com.github.engfragui.graphql.mockapis.routes.AuthorById;
-import com.github.engfragui.graphql.mockapis.routes.BookDetailByIsbn;
-import com.github.engfragui.graphql.mockapis.routes.ReviewByIsbn;
+import com.github.engfragui.graphql.mockapi.health.AppHealthCheck;
+import com.github.engfragui.graphql.mockapi.routes.AuthorById;
+import com.github.engfragui.graphql.mockapi.routes.BookDetailByIsbn;
+import com.github.engfragui.graphql.mockapi.routes.ReviewByIsbn;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -26,7 +26,7 @@ public class App extends Application<AppConfig> {
 
   @Override
   public String getName() {
-    return "mock-apis-app";
+    return "mock-api-app";
   }
 
   @Override
@@ -61,6 +61,6 @@ public class App extends Application<AppConfig> {
     env.jersey().register(new ReviewByIsbn());
 
     // Register Health Check
-    env.healthChecks().register("mock-apis-health-check", new AppHealthCheck());
+    env.healthChecks().register("mock-api-health-check", new AppHealthCheck());
   }
 }

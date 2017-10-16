@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mock-apis</artifactId>
+    <artifactId>mock-api</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -103,7 +103,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.github.engfragui.graphql.mockapis.App</mainClass>
+                                    <mainClass>com.github.engfragui.graphql.mockapi.App</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

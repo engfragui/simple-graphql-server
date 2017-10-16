@@ -1,4 +1,4 @@
-package com.github.engfragui.graphql.mockapis.health;
+package com.github.engfragui.graphql.mockapi.health;
 
 public class AppHealthCheck extends com.codahale.metrics.health.HealthCheck {
 
