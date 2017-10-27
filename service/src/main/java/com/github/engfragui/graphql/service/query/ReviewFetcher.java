@@ -15,29 +15,23 @@ public class ReviewFetcher implements DataFetcher {
   public Object get(DataFetchingEnvironment env) {
 
     String fieldName = env.getFields().get(0).getName();
-
     Object source = env.getSource();
 
-    if (source instanceof BookDetail) {
-
-      // this happens only once, the first time this fetcher is called
-
-      final BookDetail bookDetail = (BookDetail) source;
-      String bookId = null;
-
-      if (bookDetail.getId() != null) {
-        bookId = ((BookDetail) source).getId();
-      }
-
-      if (bookId != null) {
-        return retrieveReview(bookId);
-      } else { // we were not able to retrieve an isbn for the book
-        return null;
-      }
-    }
-
-    // TODO possibly investigate how to return multiple reviews
     switch (fieldName) {
+
+      case "review":
+        final BookDetail bookDetail = (BookDetail) source;
+        String bookId = null;
+
+        if (bookDetail.getId() != null) {
+          bookId = ((BookDetail) source).getId();
+        }
+
+        if (bookId != null) {
+          return retrieveReview(bookId);
+        } else { // we were not able to retrieve an isbn for the book
+          return null;
+        }
 
       case "id":
         return ((Review) source).getId();

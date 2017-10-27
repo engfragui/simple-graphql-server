@@ -15,28 +15,23 @@ public class AuthorFetcher implements DataFetcher {
   public Object get(DataFetchingEnvironment env) {
 
     String fieldName = env.getFields().get(0).getName();
-
     Object source = env.getSource();
 
-    if (source instanceof BookDetail) {
-
-      // this happens only once, the first time this fetcher is called
-
-      final BookDetail bookDetail = (BookDetail) source;
-      String authorId = null;
-
-      if (bookDetail.getAuthorId() != null) {
-        authorId = ((BookDetail) source).getAuthorId();
-      }
-
-      if (authorId != null) {
-        return retrieveAuthor(authorId);
-      } else { // we were not able to retrieve an authorId for the book
-        return null;
-      }
-    }
-
     switch (fieldName) {
+
+      case "author":
+        final BookDetail bookDetail = (BookDetail) source;
+        String authorId = null;
+
+        if (bookDetail.getAuthorId() != null) {
+          authorId = ((BookDetail) source).getAuthorId();
+        }
+
+        if (authorId != null) {
+          return retrieveAuthor(authorId);
+        } else { // we were not able to retrieve an authorId for the book
+          return null;
+        }
 
       case "id":
         return ((Author) source).getId();
