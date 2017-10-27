@@ -28,6 +28,13 @@
             <version>${parent.version}</version>
         </dependency>
 
+        <!-- Simple Graphql Server Datasource -->
+        <dependency>
+            <groupId>com.github.engfragui</groupId>
+            <artifactId>datasource</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
         <!-- Dropwizard -->
         <dependency>
             <groupId>io.dropwizard</groupId>

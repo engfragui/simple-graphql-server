@@ -1,23 +1,14 @@
 package com.github.engfragui.graphql.service.query;
 
 import com.github.engfragui.graphql.api.BookDetail;
-import com.github.engfragui.graphql.api.Response;
 import com.github.engfragui.graphql.api.Review;
-import com.github.engfragui.graphql.service.http.DataSourceManager;
+import com.github.engfragui.graphql.datasource.factory.ReviewFactory;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.ws.rs.core.GenericType;
 
 public class ReviewFetcher implements DataFetcher {
-  private static final Logger LOG = LoggerFactory.getLogger(ReviewFetcher.class);
 
-  private final DataSourceManager dataSourceManager;
-
-  public ReviewFetcher(DataSourceManager dataSourceManager) {
-    this.dataSourceManager = dataSourceManager;
+  public ReviewFetcher() {
   }
 
   @Override
@@ -32,14 +23,14 @@ public class ReviewFetcher implements DataFetcher {
       // this happens only once, the first time this fetcher is called
 
       final BookDetail bookDetail = (BookDetail) source;
-      String isbn = null;
+      String bookId = null;
 
-      if (bookDetail.getIsbn() != null) {
-        isbn = ((BookDetail) source).getIsbn();
+      if (bookDetail.getId() != null) {
+        bookId = ((BookDetail) source).getId();
       }
 
-      if (isbn != null) {
-        return retrieveReview(isbn);
+      if (bookId != null) {
+        return retrieveReview(bookId);
       } else { // we were not able to retrieve an isbn for the book
         return null;
       }
@@ -62,11 +53,7 @@ public class ReviewFetcher implements DataFetcher {
     }
   }
 
-  // TODO improve this method
-  private Review retrieveReview(String isbn) {
-
-    Response<Review> response = dataSourceManager.getReviewClient().get(isbn, new GenericType<Response<Review>>(){});
-
-    return response.getData();
+  private Review retrieveReview(String bookId) {
+    return ReviewFactory.getReviewByBookId(bookId);
   }
 }

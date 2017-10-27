@@ -1,6 +1,5 @@
 package com.github.engfragui.graphql.service.query;
 
-import com.github.engfragui.graphql.service.http.DataSourceManager;
 import graphql.schema.Coercing;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.GraphQLScalarType;
@@ -28,10 +27,10 @@ public class SchemaProvider implements GraphQLQueryProvider {
     private final AuthorFetcher authorFetcher;
     private final ReviewFetcher reviewFetcher;
 
-    public SchemaProvider(DataSourceManager dataSourceManager) {
-        bookDetailFetcher = new BookDetailFetcher(dataSourceManager);
-        authorFetcher = new AuthorFetcher(dataSourceManager);
-        reviewFetcher = new ReviewFetcher(dataSourceManager);
+    public SchemaProvider() {
+        bookDetailFetcher = new BookDetailFetcher();
+        authorFetcher = new AuthorFetcher();
+        reviewFetcher = new ReviewFetcher();
     }
 
     public InputStream getSchema() {

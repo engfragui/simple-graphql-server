@@ -1,7 +1,6 @@
 package com.github.engfragui.graphql.service;
 
 import com.github.engfragui.graphql.service.health.AppHealthCheck;
-import com.github.engfragui.graphql.service.http.DataSourceManager;
 import com.github.engfragui.graphql.service.query.SchemaProvider;
 import com.smoketurner.dropwizard.graphql.GraphQLBundle;
 import com.smoketurner.dropwizard.graphql.GraphQLFactory;
@@ -57,11 +56,7 @@ public class App extends Application<AppConfig> {
     // Add URL mapping
     cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
-    // Data Source Manager
-    DataSourceManager dataSourceManager = new DataSourceManager(config);
-    env.lifecycle().manage(dataSourceManager);
-
-    final SchemaProvider provider = new SchemaProvider(dataSourceManager);
+    final SchemaProvider provider = new SchemaProvider();
 
     final OsgiGraphQLServlet servlet = (OsgiGraphQLServlet) config.getGraphQLFactory().build();
     servlet.bindQueryProvider(provider);

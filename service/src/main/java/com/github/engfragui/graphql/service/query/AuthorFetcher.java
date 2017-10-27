@@ -2,22 +2,13 @@ package com.github.engfragui.graphql.service.query;
 
 import com.github.engfragui.graphql.api.Author;
 import com.github.engfragui.graphql.api.BookDetail;
-import com.github.engfragui.graphql.api.Response;
-import com.github.engfragui.graphql.service.http.DataSourceManager;
+import com.github.engfragui.graphql.datasource.factory.AuthorFactory;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.ws.rs.core.GenericType;
 
 public class AuthorFetcher implements DataFetcher {
-  private static final Logger LOG = LoggerFactory.getLogger(AuthorFetcher.class);
 
-  private final DataSourceManager dataSourceManager;
-
-  public AuthorFetcher(DataSourceManager dataSourceManager) {
-    this.dataSourceManager = dataSourceManager;
+  public AuthorFetcher() {
   }
 
   @Override
@@ -58,11 +49,7 @@ public class AuthorFetcher implements DataFetcher {
     }
   }
 
-  // TODO improve this method
   private Author retrieveAuthor(String id) {
-
-    Response<Author> response = dataSourceManager.getAuthorClient().get(id, new GenericType<Response<Author>>(){});
-
-    return response.getData();
+    return AuthorFactory.getAuthorByAuthorId(id);
   }
 }

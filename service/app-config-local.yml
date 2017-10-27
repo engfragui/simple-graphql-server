@@ -1,25 +1,3 @@
-# BookDetail Detail
-bookDetailDataSourceConfig:
-  baseUrl: http://localhost:8000/api/v1/book/
-  connectTimeout: 5000
-  readTimeout: 5000
-  maxTotal: 1024
-
-# Author
-authorDataSourceConfig:
-  baseUrl: http://localhost:8000/api/v1/author/
-  connectTimeout: 5000
-  readTimeout: 5000
-  maxTotal: 1024
-
-# Review
-reviewDataSourceConfig:
-  baseUrl: http://localhost:8000/api/v1/review/
-  connectTimeout: 5000
-  readTimeout: 5000
-  maxTotal: 1024
-
-
 server:
   applicationConnectors:
     - type: http

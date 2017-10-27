@@ -12,8 +12,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>api</module>
+        <module>datasource</module>
         <module>service</module>
-        <module>mock-service</module>
     </modules>
 
     <build>

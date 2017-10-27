@@ -21,6 +21,6 @@ type Author {
 
 type Review {
     id: String
-    stars: String
+    stars: Int
     content: String
 }

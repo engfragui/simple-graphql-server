@@ -1,25 +1,16 @@
 package com.github.engfragui.graphql.service.query;
 
 import com.github.engfragui.graphql.api.BookDetail;
-import com.github.engfragui.graphql.api.Response;
-import com.github.engfragui.graphql.service.http.DataSourceManager;
+import com.github.engfragui.graphql.datasource.factory.BookDetailFactory;
 import graphql.execution.ExecutionId;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.ws.rs.core.GenericType;
 
 public class BookDetailFetcher implements DataFetcher {
-  private static final Logger LOG = LoggerFactory.getLogger(BookDetailFetcher.class);
-
-  private final DataSourceManager dataSourceManager;
 
   private ExecutionId lastExecutionId; // TODO improve this/check if needed
 
-  public BookDetailFetcher(DataSourceManager dataSourceManager) {
-    this.dataSourceManager = dataSourceManager;
+  public BookDetailFetcher() {
   }
 
   @Override
@@ -63,11 +54,7 @@ public class BookDetailFetcher implements DataFetcher {
     }
   }
 
-  // TODO improve this method
   private BookDetail retrieveBook(String isbn) {
-
-    Response<BookDetail> response = dataSourceManager.getBookDetailClient().get(isbn, new GenericType<Response<BookDetail>>(){});
-
-    return response.getData();
+    return BookDetailFactory.getBookDetailByBookId(isbn);
   }
 }
