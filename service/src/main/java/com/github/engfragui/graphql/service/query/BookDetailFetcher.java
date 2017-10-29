@@ -19,8 +19,8 @@ public class BookDetailFetcher implements DataFetcher {
     switch (fieldName) {
 
       case "book":
-        String isbn = env.getArgument("isbn");
-        return retrieveBook(isbn);
+        String id = env.getArgument("id");
+        return retrieveBook(id);
 
       case "id":
         return ((BookDetail) source).getId();
@@ -36,7 +36,7 @@ public class BookDetailFetcher implements DataFetcher {
     }
   }
 
-  private BookDetail retrieveBook(String isbn) {
-    return BookDetailFactory.getBookDetailByBookId(isbn);
+  private BookDetail retrieveBook(String id) {
+    return BookDetailFactory.getBookDetailByBookId(id);
   }
 }
