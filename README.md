@@ -16,7 +16,7 @@ Running the application
     ```
 * Run the GraphQL Server:
     ```
-    sh run_graphql.sh
+    java -jar service/target/service-*-jar-with-dependencies.jar server service/app-config-local.yml
     ```
 
 Testing the application
@@ -28,7 +28,7 @@ Testing the application
     ```
     ```
     query {
-      book(isbn:"11111"){
+      book(id:"11111"){
         id
         isbn
         title
